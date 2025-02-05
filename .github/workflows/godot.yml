@@ -1,36 +1,4 @@
-name: godot
-
-on:
-  push:
-    paths:
-      - "version"
-      - ".github/workflows/blank.yml"
-      - "export_presets.html.example"
-
-env:
-  WORKING_DIRECTORY: game
-
-jobs:
-  deploy:
-    if: github.ref == 'main'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout source code
-        uses: actions/checkout@v3
-
-  
-
-      - name: Create export directory
-        run: mkdir html5
-
-      - name: Create export_presets.cfg
-        run: cp game/export_presets.html.example game/export_presets.cfg
-
-      - name: Godot HTML5 export
-        uses: dulvui/godot-html-export@v1
-        with:
-          working-directory: ${{ env.WORKING_DIRECTORY }} 
-          godot-version: 4.2
-          create-export-preset-cfg: false
-
-    
+            - name: godot-ci
+  # You may pin to the exact commit or the version.
+  # uses: abarichello/godot-ci@f8fb9f6629906c2f57f0cf4a9051a1a4a20efa1c
+  uses: abarichello/godot-ci@3.4.2
