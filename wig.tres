@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cnblfenboxqqi"]
+
+[ext_resource type="Shader" path="res://wigle.gdshader" id="1_0vkj2"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_0vkj2")
+shader_parameter/onoff = null
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_rate = 0.2
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.01
