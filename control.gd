@@ -1,13 +1,13 @@
 extends Control
 #var random_pairs = [1, 2,3,12,13,14,15,16]
-var opr=["-"]
+var opr=["+"]
 #var opr=["+","-","×","÷"]
 #var opr=["÷"]
 #var opr=["×"]
 var combos=20 # Note 0 - pick all, N - how much u want
-var random_pairs = [11,50,1]
+var random_pairs = [11,90,1]
 #var random_pairs = [3]
-var random_pairs0 = [2,9,1]
+var random_pairs0 = [11,79,1]
 #var random_pairs = [21,22,23,24,25,26,27,28,29]
 # Variables for the numbers and answer
 
@@ -101,7 +101,7 @@ func generate_nums():
 	#for i in range(random_pairs.size()):
 	for i in range(random_pairs[0],random_pairs[1], random_pairs[2]):
 		for j in range(random_pairs0[0],random_pairs0[1], random_pairs0[2]):
-			if i > j and i%10 >= j%10:
+			if i+j <=99 and i%10 + j%10 <= 9:
 				combinations.append([i ,j])
 			#if i > j or picked_oper != "×":
 			#	combinations.append([i, j])
