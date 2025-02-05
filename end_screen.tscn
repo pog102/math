@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=3 uid="uid://coli1djd8c65e"]
+
+[ext_resource type="Script" path="res://end_screen.gd" id="1_s7b26"]
+[ext_resource type="FontFile" uid="uid://dwwd7fccquws7" path="res://fonts/BeautifulPoliceOfficer-rvv8x.ttf" id="2_40vne"]
+[ext_resource type="AudioStream" uid="uid://562qq1onhe2l" path="res://yippee-original-sound-effect-made-with-Voicemod.mp3" id="3_usnll"]
+[ext_resource type="AudioStream" uid="uid://c1rl714gqwtwm" path="res://oh-no-mario-made-with-Voicemod.mp3" id="4_okeal"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cuxno"]
+bg_color = Color(0.588235, 0.423529, 0.423529, 1)
+
+[sub_resource type="Theme" id="Theme_evquq"]
+default_font = ExtResource("2_40vne")
+default_font_size = 69
+
+[node name="EndScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s7b26")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cuxno")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -38.5
+offset_right = 20.0
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_evquq")
+
+[node name="title" type="RichTextLabel" parent="VBoxContainer"]
+clip_contents = false
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "[rainbow freq=0.19 sat=0.96  val=.88]Rezultatai"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+tab_size = 0
+
+[node name="Result" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Good" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Bad" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="yippe" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_usnll")
+
+[node name="ohno" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_okeal")

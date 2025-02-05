@@ -1,0 +1,94 @@
+[gd_scene load_steps=7 format=3 uid="uid://dth8e2nco5vtl"]
+
+[ext_resource type="Script" path="res://control.gd" id="1_oapt8"]
+[ext_resource type="FontFile" uid="uid://dwwd7fccquws7" path="res://fonts/BeautifulPoliceOfficer-rvv8x.ttf" id="2_r1esi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u7m62"]
+bg_color = Color(0.953144, 0.396557, 0.338229, 1)
+
+[sub_resource type="Theme" id="Theme_noid4"]
+default_font = ExtResource("2_r1esi")
+default_font_size = 141
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2k1nb"]
+draw_center = false
+border_width_bottom = 9
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Theme" id="Theme_bldwr"]
+Label/styles/normal = SubResource("StyleBoxFlat_2k1nb")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oapt8")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_u7m62")
+
+[node name="Container" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -223.0
+offset_right = 15.0
+offset_bottom = 223.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_noid4")
+
+[node name="Operation" type="HBoxContainer" parent="Container"]
+custom_minimum_size = Vector2(30, 12)
+layout_mode = 2
+
+[node name="space" type="Label" parent="Container/Operation"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+
+[node name="oper" type="Label" parent="Container/Operation"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.0
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="2Values" type="VBoxContainer" parent="Container/Operation"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Container/Operation/2Values"]
+layout_mode = 2
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Container/Operation/2Values"]
+layout_mode = 2
+theme = SubResource("Theme_bldwr")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Container"]
+layout_mode = 2
+horizontal_alignment = 2
+
+[node name="Level" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 33
