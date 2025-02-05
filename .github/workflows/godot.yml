@@ -15,11 +15,14 @@ jobs:
       - name: Export Godot Project
         uses: firebelley/godot-export@v6.0.0
         with:
-          use_godot_3: false  # Use Godot 4.x
-          cache: true
+          godot_executable_download_url: "https://downloads.tuxfamily.org/godotengine/4.3/Godot_v4.3-stable_linux.x86_64.zip"
+          godot_export_templates_download_url: "https://downloads.tuxfamily.org/godotengine/4.3/Godot_v4.3-stable_export_templates.tpz"
           relative_project_path: .  # Path to the Godot project
-          presets_to_export: "Web"  # Make sure it matches the name in Godot's export settings
-          relative_export_path: "exports/web"  # Where the exported files will be stored
+          presets_to_export: "Web"  # Ensure it matches your Godot export preset
+          relative_export_path: "exports/web"  # Where to save exported files
+          cache: true
+          export_debug: false
+          verbose: true
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
