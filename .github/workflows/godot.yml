@@ -27,5 +27,6 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: exports/web  # Ensure this matches the export path
+          personal_token: ${{ secrets.GH_PAT }}  # Use PAT instead of GITHUB_TOKEN
+          publish_dir: exports/web  # Ensure this matches your export path
+          publish_branch: gh-pages
