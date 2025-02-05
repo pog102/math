@@ -1,4 +1,20 @@
-            - name: godot-ci
-  # You may pin to the exact commit or the version.
-  # uses: abarichello/godot-ci@f8fb9f6629906c2f57f0cf4a9051a1a4a20efa1c
-  uses: abarichello/godot-ci@3.4.2
+image: barichello/godot-ci:3.1.1
+
+stages:
+  - export
+  - deploy
+
+before_script:
+  - mkdir -v -p build/web
+
+web:
+  stage: export
+  script:
+    - godot -v --path Godot --export "HTML5" ../build/web/index.html
+    - test -e ../build/web/index.html
+  artifacts:
+    name: $EXPORT_NAME-$CI_JOB_NAME
+    paths:
+      - build/web
+  only:
+      - release
