@@ -1,26 +1,26 @@
+name: Export and Deploy to GitHub Pages
+
 on:
   push:
     branches:
-    - main
-    - release/*
-    
-image: barichello/godot-ci:3.1.1
+      - main  # Adjust if your default branch is different
 
-stages:
-  - export
-  - deploy
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
-before_script:
-  - mkdir -v -p build/web
+      - name: Set up Godot Export
+        uses: firebelley/godot-export@v6.0.0
+        with:
+          version: 4.3
+          export_path: "exports/web"  # Adjust based on your export settings
+          export_preset: "Web"  # Ensure this matches the preset name in Godot
 
-web:
-  stage: export
-  script:
-    - godot -v --path Godot --export "HTML5" ../build/web/index.html
-    - test -e ../build/web/index.html
-  artifacts:
-    name: $EXPORT_NAME-$CI_JOB_NAME
-    paths:
-      - build/web
-  only:
-      - release
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: exports/web  # Ensure this matches the export_path above
