@@ -12,11 +12,12 @@ func _ready() -> void:
 	good.text="Teisingi: "+str(Global.correct_ans)
 	#good.add_theme_color_override("font_color")
 	bad.text="Blogi: "+str(Global.bad_answ)
-	var tot=(Global.correct_ans*100/(Global.bad_answ+Global.correct_ans))
-	res.text="Pazimis "+str(tot)+"%"
-	if tot > 80:
+	var tot=round(Global.correct_ans*10.0/(Global.bad_answ+Global.correct_ans))
+	
+	res.text="Pazimis "+str(tot)
+	if tot > 8:
 		yippe.play()
-	if tot < 50:
+	if tot < 4:
 		ohno.play()
 	#save_to_file(str(Time.get_time_dict_from_system()," ",tot," ",Global.correct_ans," ",Global.bad_answ))
 
