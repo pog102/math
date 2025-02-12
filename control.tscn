@@ -1,7 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://dth8e2nco5vtl"]
+[gd_scene load_steps=16 format=3 uid="uid://dth8e2nco5vtl"]
 
 [ext_resource type="Script" path="res://control.gd" id="1_oapt8"]
-[ext_resource type="FontFile" uid="uid://bnapasvta3t05" path="res://fonts/MinecraftRegular-Bmg3.otf" id="2_iptoj"]
+[ext_resource type="Theme" uid="uid://c1t1wklam0k5a" path="res://font.tres" id="2_65poy"]
 [ext_resource type="AudioStream" uid="uid://bcc6bphegwvkv" path="res://ding-126626.mp3" id="3_8ils1"]
 [ext_resource type="Script" path="res://richtext.gd" id="3_82w4j"]
 [ext_resource type="Material" uid="uid://cnblfenboxqqi" path="res://wig.tres" id="3_nn2bi"]
@@ -13,10 +13,6 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u7m62"]
 bg_color = Color(0.588235, 0.423529, 0.423529, 1)
-
-[sub_resource type="Theme" id="Theme_noid4"]
-default_font = ExtResource("2_iptoj")
-default_font_size = 141
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_mv3uo"]
 script = ExtResource("3_82w4j")
@@ -52,18 +48,18 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_u7m62")
 
 [node name="Container" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.493
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 0.544
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -48.5359
+offset_left = -176.0
 offset_top = -223.0
-offset_right = 71.712
+offset_right = 176.0
 offset_bottom = 223.0
-grow_horizontal = 0
+grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_noid4")
+theme = ExtResource("2_65poy")
 
 [node name="Operation" type="HBoxContainer" parent="Container"]
 custom_minimum_size = Vector2(30, 3)
@@ -180,5 +176,19 @@ focus_mode = 0
 icon = ExtResource("10_4fpi0")
 icon_alignment = 1
 expand_icon = true
+
+[node name="Correct" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_65poy")
 
 [connection signal="pressed" from="HBoxContainer/back" to="." method="_on_back_pressed"]
