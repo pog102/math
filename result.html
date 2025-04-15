@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      body {
+          background-color: white;
+          margin: 0;
+          height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+          /* important for absolute children */
+          font-family: Arial, sans-serif;
+      }
+  </style>
+</head>
+<body>
+    <div id="output"></div>
+
+    <script>
+          const pointsData = localStorage.getItem("points");
+    const points = pointsData ? JSON.parse(pointsData) : { bad: 0, good: 0 };
+      
+    let result=Math.round(points.good*10/(points.good+points.bad))
+    document.getElementById("output").innerHTML = `
+      Rezultatas: ${result} <br>
+    Geri: ${points.good} <br>
+      Blogi: ${points.bad}
+    `;
+    </script>
+</body>
+</html>
